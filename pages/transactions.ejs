@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+     <title>TOR Library</title>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+     <link rel="stylesheet" href="/bootstrap.min.css">
+     <link rel="stylesheet" href="/font-awesome.min.css">
+     <link rel="stylesheet" href="/owl.carousel.css">
+     <link rel="stylesheet" href="/owl.theme.default.min.css">
+
+     <!-- MAIN CSS -->
+     <link rel="stylesheet" href="/templatemo-style.css">
+     <link rel="stylesheet" href="/vendor.css">
+
+</head>
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+     <!-- PRE LOADER -->
+     <section class="preloader">
+          <div class="spinner">
+               <span class="spinner-rotate"></span>
+               
+          </div>
+     </section>
+
+
+     <!-- MENU -->
+     <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+          <div class="container">
+
+               <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                    </button>
+
+                    <!-- lOGO TEXT HERE -->
+                    <a href="#" class="navbar-brand">TOR Library</a>
+               </div>
+
+               <!-- MENU LINKS -->
+               <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-nav-first">
+                         <li><a href="/finance/<%= id %>/<%= name %>#top" class="smoothScroll">Home</a></li>
+                         <li><a href="/finance/<%= id %>/<%= name %>#feature" class="smoothScroll">Employee Dues</a></li>
+                         <li><a href="/finance/<%= id %>/<%= name %>#member" class="smoothScroll">Member Dues</a></li>
+                         <li><a href="/finance/<%= id %>/<%= name %>#transactions" class="smoothScroll">Transactions</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                         <!-- <li><a href="#"><i class="fa fa-phone"></i> +65 2244 1100</a></li> -->
+                         <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label"><%= name%></span> <span class="caret"></span></a>
+                              <ul class="dropdown-menu">
+                                   <li><a href="/faccount/<%= id %>" class="smoothScroll">Account</a></li>
+                                   <li><a href="/signout/<%= id %>/0" class="smoothScroll">Sign Out</a></li>
+                              </ul>
+                         </li>
+                    </ul>
+               </div>
+          </div>
+     </section>
+
+     <!-- FEATURE -->
+     <section id="feature">
+               <div class="feature-thumb">
+                         <h2>Search Result</h2>
+                         <ul class="responsive-table">
+                           <li class="table-header">
+                             <div class="col col-1">Date</div>
+                             <div class="col col-2">Amount</div>
+                             <div class="col col-3">Name</div>
+                             <div class="col col-4">Overseeer</div>
+                             <div class="col col-5">Type</div>
+                           </li>
+                           <% if(rows.length === 0) { %>
+                              <h3>No Results found. Please try again</h3>
+                              <br/>
+
+                         <% } else { %>
+                           <% rows.forEach (row => { %>
+                                   <li>
+                                        <div class="col col-1" data-label="L_ID"><%= row.T_DATE %></div>
+                                        <div class="col col-2" data-label="Name">Rs:<%= row.Amount %></div>
+                                        <div class="col col-3" data-label="Author"><%= row.Name %></div>
+                                        <div class="col col-4" data-label="Genre"><%= row.E_Name %></div>
+                                        <div class="col col-5" data-label="Availavle"><%= row.Type%></div>
+                                   </li>
+                         <% })} %>
+                         <a href="/finance/<%= id %>/<%= name %>#transactions"><button class="submit-btn form-control" id="form-submit"  style="width: 100px;">< Back</button></a>
+                          
+               </div>    
+     </section>
+
+
+
+    
+     <%- include('footer.ejs') %>
+
+
+     <!-- SCRIPTS -->
+     <script src="/jquery.js"></script>
+     <script src="/bootstrap.min.js"></script>
+     <script src="/owl.carousel.min.js"></script>
+     <script src="/smoothscroll.js"></script>
+     <script src="/custom.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+     <title>TOR Library</title>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+     <link rel="stylesheet" href="/bootstrap.min.css">
+     <link rel="stylesheet" href="/font-awesome.min.css">
+     <link rel="stylesheet" href="/owl.carousel.css">
+     <link rel="stylesheet" href="/owl.theme.default.min.css">
+
+     <!-- MAIN CSS -->
+     <link rel="stylesheet" href="/templatemo-style.css">
+     <link rel="stylesheet" href="/vendor.css">
+
+</head>
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+     <!-- PRE LOADER -->
+     <section class="preloader">
+          <div class="spinner">
+               <span class="spinner-rotate"></span>
+               
+          </div>
+     </section>
+
+
+     <!-- MENU -->
+     <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+          <div class="container">
+
+               <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                    </button>
+
+                    <!-- lOGO TEXT HERE -->
+                    <a href="#" class="navbar-brand">TOR Library</a>
+               </div>
+
+               <!-- MENU LINKS -->
+               <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-nav-first">
+                         <li><a href="/employee/<%= id %>/<%= name %>" class="smoothScroll">Home</a></li>
+                         <li><a href="/view-e/<%= id %>/<%= name %>/0" class="smoothScroll">Edit Employees</a></li>
+                         <li><a href="/view-m/<%= id %>/<%= name %>/0" class="smoothScroll">Edit Members</a></li>
+                         <li><a href="/new-m/<%= id %>/<%= name %>/0" class="smoothScroll">New Member</a></li>
+                         <li><a href="/employee/<%= id %>/<%= name %>#log" class="smoothScroll">Employee log</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                         <!-- <li><a href="#"><i class="fa fa-phone"></i> +65 2244 1100</a></li> -->
+                         <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label"><%= name%></span> <span class="caret"></span></a>
+                              <ul class="dropdown-menu">
+                                   <li><a href="/account/<%= id %>" class="smoothScroll">Account</a></li>
+                                   <li><a href="/signout/<%= id %>/0" class="smoothScroll">Sign Out</a></li>
+                              </ul>
+                          </li>
+                         
+                    </ul>
+               </div>
+          </div>
+     </section>
+
+     <!-- FEATURE -->
+     <section id="feature">
+               <div class="feature-thumb">
+                    <form action="/editdone/<%= id %>/<%= name %>" method="POST">
+                         <%  if (clicked === '2') { %>
+                              <h2>Error!</h2>
+                         <% } else if (clicked === '0') { %>
+                              <h2>Do you wish to Edit?</h2>
+                         <% } else if (clicked === '3') { %>
+                              <h2>Title already exists</h2>
+                         <% } else { %>
+                              <h2>Details Updated</h2>
+                         <% } %>
+                         <h3 >E_ID <input style="text-align: center; margin-left: 58px;" type="text" id="E_ID" name="E_ID" value="<%= row.E_ID %>" readonly> </h3>
+                         <h3 >Name <input style="text-align: center; margin-left: 45px;" type="text" id="E_Name" name="E_Name" value="<%= row.E_Name %>" ></h3>
+                         <h3 >Type<input style="text-align: center; margin-left: 63px;" type="text" id="Type" name="Type" value="<%= row.Type %>" ></h3>
+                         <h3 >CNIC<input style="text-align: center; margin-left: 60px;" type="text" id="CNIC" name="CNIC" value="<%= row.CNIC %>" ></h3>
+                         <h3 >Residence<input style="text-align: center; margin-left: 10px;" type="text" id="Residence" name="Residence" value="<%= row.Residence %>" ></h3>
+                         <h3 >Dues<input style="text-align: center; margin-left: 60px;" type="text" id="Dues" name="Dues" value="<%= row.Dues %>" readonly></h3>
+                         <h3 >Password<input style="text-align: center; margin-left: 12px;" type="text" id="Password" name="Password" value="<%= row.Password %>" ></h3>
+                         <h3 >Active<select style="text-align: center; margin-left: 48px;" type="text" id="Active" name="Active" value="<%= row.Active %>" required >
+                         <% if(row.Active===0) { %>
+                              <option value="1">Active</option>
+                              <option selected="selected" value="0">Not Active</option>
+                         <% } else { %>
+                              <option selected="selected" value="1">Active</option>
+                              <option  value="0">NotActive</option>
+                         <% } %>
+                              </select>
+                         </h3>
+                         <%  if (clicked === '0' || clicked==='3') { %>
+                                   <p><button type="submit" class="submit-btn form-control" id="form-submit"  style="width: 100px;">Confirm</button></p>
+                         <% }  else if (clicked === '1') { %>
+                              <p><i> Edit DONE</i></p>
+                         <% } else if (clicked === '2' ) { %>
+                              <p><i> Error, Please enter valid, positive Price and quantity </i></p>
+                              <p><button type="submit" class="submit-btn form-control" id="form-submit"  style="width: 100px;">Confirm</button></p>
+                         <% } %>
+                    </form>
+                         <a href="/view-e/<%= id %>/<%= name %>/0"><button class="submit-btn form-control" id="form-submit"  style="width: 100px;">< Back</button></a>
+                          
+               </div>    
+     </section>
+
+
+
+    
+
+     <%- include('footer.ejs') %>
+
+
+     <!-- SCRIPTS -->
+     <script src="/jquery.js"></script>
+     <script src="/bootstrap.min.js"></script>
+     <script src="/owl.carousel.min.js"></script>
+     <script src="/smoothscroll.js"></script>
+     <script src="/custom.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+     <title>TOR Library</title>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+     <link rel="stylesheet" href="/bootstrap.min.css">
+     <link rel="stylesheet" href="/font-awesome.min.css">
+     <link rel="stylesheet" href="/owl.carousel.css">
+     <link rel="stylesheet" href="/owl.theme.default.min.css">
+
+     <!-- MAIN CSS -->
+     <link rel="stylesheet" href="/templatemo-style.css">
+
+</head>
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+     <!-- PRE LOADER -->
+     <section class="preloader">
+          <div class="spinner">
+               <span class="spinner-rotate"></span>
+               
+          </div>
+     </section>
+
+
+     <!-- MENU -->
+     <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+          <div class="container">
+
+               <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                    </button>
+
+                    <!-- lOGO TEXT HERE -->
+                    <a href="#" class="navbar-brand">TOR Library</a>
+               </div>
+
+               <!-- MENU LINKS -->
+               <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-nav-first">
+                         <li><a href="/member/<%= id %>/<%= name %>" class="smoothScroll">Home</a></li>
+                         <li><a href="/member/<%= id %>/<%= name %>#courses" class="smoothScroll">New Arrivals</a></li>
+                         <li><a href="/member/<%= id %>/<%= name %>#Picks" class="smoothScroll">Your Picks</a></li>
+                         <li><a href="/member/<%= id %>/<%= name %>#Search" class="smoothScroll">Search</a></li>
+                         <li><a href="/member/<%= id %>/<%= name %>#Feedback" class="smoothScroll">Feedback</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                         <!-- <li><a href="#"><i class="fa fa-phone"></i> +65 2244 1100</a></li> -->
+                         <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label"><%= name%></span> <span class="caret"></span></a>
+                              <ul class="dropdown-menu">
+                                   <li><a href="/maccount/<%= id %>" class="smoothScroll">Account</a></li>
+                                   <li><a href="/signout/<%= id %>/1" class="smoothScroll">Sign Out</a></li>
+                              </ul>
+                         </li>
+                    </ul>
+               </div>
+          </div>
+     </section>
+
+     <!-- FEATURE -->
+     <section id="feature">
+          <div class="container">
+               <div class="feature-thumb">
+               <form action="/mreturndone" method="POST">
+                    <%  if (clicked === '2') { %>
+                         <h2>You Donot Have this Borrowed, Please borrow first!</h2>
+                    <% } else if (clicked === '0') { %>
+                         <h2>Returning so soon?</h2>
+                    <% } else { %>
+                         <h2>Successfully returned...</h2>
+                    <% } %>
+                    <h3>MEMBER ID:<input style="text-align: center; margin-left: 80px;" type="text" id="M_ID" name="M_ID" value="<%= id%>" readonly> </h3> 
+                    <h3>Issued books: <input style="text-align: center; margin-left: 62px;" type="text" id="Issued_books" name="Issued_books" value="<%= issued%>" readonly>   </h3>
+                    <!-- <h3>Dues: <input style="text-align: center; margin-left: 142px;" type="text" id="Dues" name="Dues" value="<%= dues %>" readonly>  </h3> -->
+                    <h3>LITERATURE ID: <input style="text-align: center; margin-left: 39px;" type="text" id="L_ID" name="L_ID" value="<%= L_ID %>" readonly> </h3>
+                    <h3>LITERATURE Name: <input style="text-align: center; margin-left: 2px;" type="text" id="LName" name="LName" value="<%= LName %>" readonly></h3>
+                    <!-- <h3>LITERATURE Price: <input style="text-align: center; margin-left: 11px;" type="text" id="Price" name="Price" value="<%= Price %>" readonly></h3> -->
+                    <h3>Available copies: <input style="text-align: center; margin-left: 32px;" type="text" id="Available" name="Available" value="<%= Available %>" readonly></h3>
+                    <%  if (clicked === '0') { %>
+                         <p><button type="submit" class="submit-btn form-control" id="form-submit"  style="width: 100px;">Confirm</button></p>
+                    <% } %>
+               </form>
+               <a href="/member/<%= id %>/<%= name %>#Search"><button class="submit-btn form-control" id="form-submit"  style="width: 100px;">< Back</button></a> 
+     
+               </div>
+          </div>
+          </section>
+     
+
+
+    
+          <%- include('footer.ejs') %>
+
+
+     <!-- SCRIPTS -->
+     <script src="/jquery.js"></script>
+     <script src="/bootstrap.min.js"></script>
+     <script src="/owl.carousel.min.js"></script>
+     <script src="/smoothscroll.js"></script>
+     <script src="/custom.js"></script>
+
+</body>
+</html>

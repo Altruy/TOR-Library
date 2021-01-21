@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+     <title>TOR Library</title>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+     <link rel="stylesheet" href="/bootstrap.min.css">
+     <link rel="stylesheet" href="/font-awesome.min.css">
+     <link rel="stylesheet" href="/owl.carousel.css">
+     <link rel="stylesheet" href="/owl.theme.default.min.css">
+
+     <!-- MAIN CSS -->
+     <link rel="stylesheet" href="/templatemo-style.css">
+
+</head>
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+     <!-- PRE LOADER -->
+     <section class="preloader">
+          <div class="spinner">
+               <span class="spinner-rotate"></span>
+               
+          </div>
+     </section>
+
+
+     <!-- MENU -->
+     <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+          <div class="container">
+
+               <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                    </button>
+
+                    <!-- lOGO TEXT HERE -->
+                    <a href="#" class="navbar-brand">TOR Library</a>
+               </div>
+
+               <!-- MENU LINKS -->
+               <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-nav-first">
+                         <li><a href="#top" class="smoothScroll">Home</a></li>
+                         <li><a href="#feature" class="smoothScroll">Add New</a></li>
+                         <li><a href="#Search" class="smoothScroll">Edit/Remove</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                         <!-- <li><a href="#"><i class="fa fa-phone"></i> +65 2244 1100</a></li> -->
+                         <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label"><%= name%></span> <span class="caret"></span></a>
+                              <ul class="dropdown-menu">
+                                   <li><a href="/laccount/<%= E_ID %>" class="smoothScroll">Account</a></li>
+                                   <li><a href="/signout/<%= E_ID %>/0" class="smoothScroll">Sign Out</a></li>
+                              </ul>
+                          </li>
+                         
+                    </ul>
+               </div>
+
+          </div>
+     </section>
+
+
+     <!-- HOME -->
+     <section id="home">
+          <div class="row">
+
+                    <div class="owl-carousel owl-theme home-slider">
+                         <div class="item item-first">
+                              <div class="caption">
+                                   <div class="container">
+                                        <div class="col-md-6 col-sm-12">
+                                             <h1>Minimum Human Interaction Library Portal</h1>
+                                             <h3>Our online Portal provides you with all possible library features to keep huuman interaction at a bare minimum.</h3>
+                                             <a href="#feature" class="section-btn btn btn-default smoothScroll">Discover more</a>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+
+                         <div class="item item-second">
+                              <div class="caption">
+                                   <div class="container">
+                                        <div class="col-md-6 col-sm-12">
+                                             <h1>Start Exploring Our Vast Treasure of Literary Works</h1>
+                                             <a href="#Search" class="section-btn btn btn-default smoothScroll">Search Our Library</a>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+
+                         <div class="item item-third">
+                              <div class="caption">
+                                   <div class="container">
+                                        <div class="col-md-6 col-sm-12">
+                                             <h1>Efficient Method to keep track of your picks</h1>
+                                             <h3>Keeping Track of your Issued literary Works has never been easier... </h3>
+                                             <a href="#Pickss" class="section-btn btn btn-default smoothScroll">Check out Your Picks</a>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+          </div>
+     </section>
+
+     <!-- FEATURE -->
+     <section id="feature">
+          <div class="container">
+               <div class="feature-thumb">
+               <form action="/addnew/<%= E_ID %>/<%= name %>/0" method="post">
+                    <h2>Do you wish to Add a new work?</h2>
+                    <h3>LITERATURE Name: <input style="text-align: center; margin-left: 2px;" type="text" id="LName" name="LName" value="" required></h3>
+                    <h3>LITERATURE Price: <input style="text-align: center; margin-left: 11px;" type="text" id="Price" name="Price" value="" required></h3>
+                    <h3>Available copies: <input style="text-align: center; margin-left: 32px;" type="text" id="Available" name="Available" value="" required></h3>
+                    <p><button type="submit" class="submit-btn form-control" id="form-submit"  style="width: 100px;">Confirm</button></p>
+                 
+               </form>
+               </div>
+          </div>
+          <style></style>
+          </section>
+     
+
+
+
+     
+
+
+     <!-- Search -->
+     <section id="Search">
+          <div class="container" style="height: 700px;">
+               <div class="search-form" >
+               <form  method="post" action="/edit-req/<%= E_ID %>/<%= name%>">
+                    <h2 >Search for Literary Work(s) to Edit:</h2>
+                    <input type="text" style="color: white;" name="key_word" class="search-control" placeholder="  Enter Author / Title Keyword(s)"  >
+                    
+                    <h2 style="margin-top: 30px;">Category:</h2>
+                    <input type="radio" id="Newsletter" name="Category" value="Newsletter" style=" -webkit-transform: scale(1.8);" required="">
+                    <label for="Newsletter" style="color: rgb(255, 255, 255);font-size: 20px;padding-left:1% ;padding-right: 2%;">Newsletter</label>
+                    <input type="radio" id="Journal" name="Category" value="Journal" style="margin-left: 1.795px ;-webkit-transform: scale(1.8);" required="">
+                    <label for="Journal" style="color: rgb(255, 255, 255);font-size: 20px;padding-left:1%;padding-right: 2%;">Journal</label>
+                    <input type="radio" id="Book" name="Category" value="Book" style="margin-left: 1.795px ;-webkit-transform: scale(1.8);" required="">
+                    <label for="Book" style="color: rgb(255, 255, 255);font-size: 20px;padding-left:1%;padding-right: 2%;" >Book</label>
+                    <input type="radio" id="Article" name="Category" value = "Article" style="-webkit-transform: scale(1.8);" required="">
+                    <label for="Article" style="color: rgb(255, 255, 255);font-size: 20px;padding-left:1%;padding-right: 2%;">Article</label>
+              
+                    <h2 style="margin-top: 30px;">Genre(s):</h2>
+                    <div>
+                        
+                       
+                         <input type="checkbox" id="Film-Noir" name="Genre" value="Film-Noir" style="margin-left: 1.795px ;-webkit-transform: scale(1.5);">
+                         <label for="Film-Noir" style="color: rgb(255, 255, 255);font-size: 20px;padding-right: 1%;padding-left: 1.2%;">Film-Noir</label>
+                    
+                         <input type="checkbox" id="Thriller" name="Genre" value="Thriller" style="margin-left: 1.795px ;-webkit-transform: scale(1.5);">
+                         <label for="Thriller" style="color: rgb(255, 255, 255);font-size: 20px;padding-right: 1%;padding-left: 1.2%;">Thriller</label>
+                         <input type="checkbox" id="Western" name="Genre" value="Western" style="margin-left: 1.795px ;-webkit-transform: scale(1.5);">
+                         <label for="Western" style="color: rgb(255, 255, 255);font-size: 20px;padding-right: 1%;padding-left: 1.2%;">Western</label>
+                         <input type="checkbox" id="Fantasy" name="Genre" value="Fantasy" style="margin-left: 1.795px ;-webkit-transform: scale(1.5);">
+                         <label for="Fantasy" style="color: rgb(255, 255, 255);font-size: 20px;padding-right: 1%;padding-left: 1.2%;">Fantasy</label>
+                    
+                         <input type="checkbox" id="Horror" name="Genre" value="Horror" style="margin-left: 1.795px ;-webkit-transform: scale(1.5);">
+                         <label for="Horror" style="color: rgb(255, 255, 255);font-size: 20px;padding-right: 1%;padding-left: 1.2%;">Horror</label><br>
+                         <input type="checkbox" id="Action" name="Genre" value="Action" style="margin-left: 1.795px ;-webkit-transform: scale(1.5);">
+                         <label for="Action" style="color: rgb(255, 255, 255);font-size: 20px;padding-right: 1%;padding-left: 1%;">Action</label>
+                         <input type="checkbox" id="Comedy" name="Genre" value="Comedy" style="margin-left: 1.795px ;-webkit-transform: scale(1.5);">
+                         <label for="Comedy" style="color: rgb(255, 255, 255);font-size: 20px;padding-right: 1%;padding-left: 1.2%;">Comedy</label>
+                         <input type="checkbox" id="Drama" name="Genre" value="Drama" style="margin-left: 1.795px ;-webkit-transform: scale(1.5);">
+                         <label for="Drama" style="color: rgb(255, 255, 255);font-size: 20px;padding-right: 1%;padding-left: 1.2%;">Drama</label>
+                        
+
+
+                         <input type="checkbox" id="Romance" name="Genre" value="Romance" style="margin-left: 1.795px ;-webkit-transform: scale(1.5);">
+                         <label for="Romance" style="color: rgb(255, 255, 255);font-size: 20px;padding-right: 1.9%;padding-left: 1.2%;">Romance</label>
+                    
+                         <input type="checkbox" id="War" name="Genre" value="War" style="margin-left: 1.795px ;-webkit-transform: scale(1.5);">
+                         <label for="War" style="color: rgb(255, 255, 255);font-size: 20px;padding-right: 1%;padding-left: 1.2%;">War</label>
+                         
+                         
+                    </div><br>
+                    <button class="submit-btn form-control" id="form-submit" style="font-size: larger; width: 250px;" >Let's Go!</button>
+               </form>
+           </div>
+          </div>
+     </section> 
+     
+
+     <%- include('footer.ejs') %>
+
+
+     <!-- SCRIPTS -->
+     <script src="/jquery.js"></script>
+     <script src="/bootstrap.min.js"></script>
+     <script src="/owl.carousel.min.js"></script>
+     <script src="/smoothscroll.js"></script>
+     <script src="/custom.js"></script>
+
+</body>
+</html>

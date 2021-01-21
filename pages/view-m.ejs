@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+     <title>TOR Library</title>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+     <link rel="stylesheet" href="/bootstrap.min.css">
+     <link rel="stylesheet" href="/font-awesome.min.css">
+     <link rel="stylesheet" href="/owl.carousel.css">
+     <link rel="stylesheet" href="/owl.theme.default.min.css">
+
+     <!-- MAIN CSS -->
+     <link rel="stylesheet" href="/templatemo-style.css">
+     <link rel="stylesheet" href="/vendors.css">
+
+</head>
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+     <!-- PRE LOADER -->
+     <section class="preloader">
+          <div class="spinner">
+               <span class="spinner-rotate"></span>
+               
+          </div>
+     </section>
+
+
+     <!-- MENU -->
+     <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+          <div class="container">
+
+               <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                    </button>
+
+                    <!-- lOGO TEXT HERE -->
+                    <a href="#" class="navbar-brand">TOR Library</a>
+               </div>
+
+               <!-- MENU LINKS -->
+               <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-nav-first">
+                         <li><a href="/employee/<%= id %>/<%= name %>" class="smoothScroll">Home</a></li>
+                         <li><a href="/view-e/<%= id %>/<%= name %>/0" class="smoothScroll">Edit Employees</a></li>
+                         <li><a href="/view-m/<%= id %>/<%= name %>/0" class="smoothScroll">Edit Members</a></li>
+                         <li><a href="/new-m/<%= id %>/<%= name %>/0" class="smoothScroll">New Member</a></li>
+                         <li><a href="/employee/<%= id %>/<%= name %>#log" class="smoothScroll">Employee log</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                         <!-- <li><a href="#"><i class="fa fa-phone"></i> +65 2244 1100</a></li> -->
+                         <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label"><%= name%></span> <span class="caret"></span></a>
+                              <ul class="dropdown-menu">
+                                   <li><a href="/account/<%= id %>" class="smoothScroll">Account</a></li>
+                                   <li><a href="/signout/<%= id %>/0" class="smoothScroll">Sign Out</a></li>
+                              </ul>
+                          </li>
+                         
+                    </ul>
+               </div>
+          </div>
+     </section>
+
+     <!-- FEATURE -->
+     <section id="feature">
+               <div class="feature-thumb">
+                         <h2>Search Result</h2>
+                         <ul class="responsive-table">
+                           <li class="table-header">
+                             <div class="col col-1">M ID</div>
+                             <div class="col col-2">Name</div>
+                             <div class="col col-3">Phone</div>
+                             <div class="col col-4">Issued_books</div>
+                             <div class="col col-5">Address</div>
+                             <div class="col col-6">Dues</div>
+                             <div class="col col-7">Pass</div>
+                             <div class="col col-8">Active</div>
+                             <div class="col col-9"></div>
+                           </li>
+                           <% if(rows.length === 0) { %>
+                              <h3>No Results found. Please try again</h3>
+                              <br/>
+
+                         <% } else { %>
+                           <% rows.forEach (row => { %>
+                                   <li>
+                                        <div class="col col-1" data-label="M_ID"> <input style="text-align: center; width: 100%;" type="text" id="M_ID" name="M_ID" value="<%= row.M_ID %>" readonly> </div>
+                                        <div class="col col-2" data-label="Name"> <input style="text-align: center; width: 100%;" type="text" id="Name" name="Name" value="<%= row.Name %>" readonly></div>
+                                        <div class="col col-3" data-label="Phone"><input style="text-align: center; width: 100%;" type="text" id="Phone" name="Phone" value="<%= row.Phone %>" readonly></div>
+                                        <div class="col col-4" data-label="Issued_books"><input style="text-align: center; width: 100%;" type="text" id="Issued_books" name="Issued_books" value="<%= row.Issued_books %>" readonly></div>
+                                        <div class="col col-5" data-label="Address"><input style="text-align: center; width: 100%;" type="text" id="Address" name="Address" value="<%= row.Address %>" readonly></div>
+                                        <div class="col col-6" data-label="Dues"><input style="text-align: center; width: 100%;" type="text" id="Dues" name="Dues" value="<%= row.Dues %>" readonly></div>
+                                        <div class="col col-7" data-label="Password"><input style="text-align: center; width: 100%;" type="text" id="Password" name="Password" value="<%= row.Password %>" readonly></div>
+                                        <div class="col col-8" data-label="Active"><input style="text-align: center; width: 100%;" type="text" id="Active" name="Active" value="<%= row.Active %>" readonly></div>
+                                        <div class="col col-9" data-label="button"><form action="/edit-m/<%= id %>/<%= name%>/<%= row.M_ID %>/0" method="POST"><button class="submit-btn form-control" id="form-submit"  style="width: 100px;">Edit</button></form></div>
+                                   </li>
+                         <% })} %>
+                         <a href="/employee/<%= id %>/<%= name %>"><button class="submit-btn form-control" id="form-submit"  style="width: 100px;">< Back</button></a>
+                          
+               </div>    
+     </section>
+
+
+
+     <%- include('footer.ejs') %>
+
+     <!-- SCRIPTS -->
+     <script src="/jquery.js"></script>
+     <script src="/bootstrap.min.js"></script>
+     <script src="/owl.carousel.min.js"></script>
+     <script src="/smoothscroll.js"></script>
+     <script src="/custom.js"></script>
+
+</body>
+</html>
