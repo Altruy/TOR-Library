@@ -13,10 +13,11 @@ It can be used by:
 - Librarians
 - Finance Staff
 
-to check it out:
+To check it out:
 https://tor-library.herokuapp.com
 
-customer login:
+U can use the
+Customer login:
 ID: 1
 Password: abc
 
@@ -24,7 +25,7 @@ Librarian login
 ID: 3
 Password: asd
 
-finance employee login:
+Finance employee login:
 ID: 2
 Password: asd
 
